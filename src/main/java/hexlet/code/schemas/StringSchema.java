@@ -2,9 +2,8 @@ package hexlet.code.schemas;
 
 import hexlet.code.Validator;
 
-public class StringSchema {
+public class StringSchema extends BaseSchema<String> {
     private final Validator validator;
-    private boolean required = false;
     private Integer minLength = null;
     private String contains = null;
 
@@ -28,10 +27,8 @@ public class StringSchema {
     }
 
     public boolean isValid(String value) {
-        if (required) {
-            if (value == null || value.isEmpty()) {
-                return false;
-            }
+        if (!isValidRequired(value)) {
+            return false;
         }
 
         if (minLength != null && value.length() < minLength) {
