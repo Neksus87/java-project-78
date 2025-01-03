@@ -4,37 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="61bf1098-6af7-40e7-aa27-94fbe81f6dfb" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.github/workflows/main.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Makefile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app1/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app1/.idea/gradle.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app1/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app1/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app1/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app1/Makefile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app1/config/checkstyle/checkstyle.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/app1/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/java-project-78.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/app1/build.gradle.kts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" afterPath="$PROJECT_DIR$/app1/gradle/wrapper/gradle-wrapper.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/app1/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradlew" beforeDir="false" afterPath="$PROJECT_DIR$/app1/gradlew" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradlew.bat" beforeDir="false" afterPath="$PROJECT_DIR$/app1/gradlew.bat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/settings.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/app1/settings.gradle.kts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/hexlet/code/Validator.java" beforeDir="false" afterPath="$PROJECT_DIR$/app1/src/main/java/hexlet/code/Validator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/hexlet/code/schemas/BaseSchema.java" beforeDir="false" afterPath="$PROJECT_DIR$/app1/src/main/java/hexlet/code/schemas/BaseSchema.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/hexlet/code/schemas/MapSchema.java" beforeDir="false" afterPath="$PROJECT_DIR$/app1/src/main/java/hexlet/code/schemas/MapSchema.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/hexlet/code/schemas/NumberSchema.java" beforeDir="false" afterPath="$PROJECT_DIR$/app1/src/main/java/hexlet/code/schemas/NumberSchema.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/hexlet/code/schemas/StringSchema.java" beforeDir="false" afterPath="$PROJECT_DIR$/app1/src/main/java/hexlet/code/schemas/StringSchema.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/hexlet/code/ValidatorTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/app1/src/test/java/hexlet/code/ValidatorTest.java" afterDir="false" />
-    </list>
+    <list default="true" id="61bf1098-6af7-40e7-aa27-94fbe81f6dfb" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -281,6 +251,7 @@
       <workItem from="1734397383775" duration="3106000" />
       <workItem from="1735884675693" duration="13948000" />
       <workItem from="1735898705062" duration="170000" />
+      <workItem from="1735900905535" duration="14000" />
     </task>
     <servers />
   </component>
