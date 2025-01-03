@@ -1,49 +1,27 @@
 package hexlet.code.schemas;
 
-import hexlet.code.Validator;
+import java.util.Objects;
 
-public class NumberSchema extends BaseSchema<Number> {
-    private final Validator validator;
-    private Double rangeStart = null;
-    private Double rangeEnd = null;
-    private boolean positive = false;
-
-    public NumberSchema(Validator validator) {
-        this.validator = validator;
-    }
+public final class NumberSchema extends BaseSchema<Integer> {
 
     public NumberSchema required() {
-        required = true;
+        addRule("required",
+                Objects::nonNull);
+
         return this;
     }
 
     public NumberSchema positive() {
-        positive = true;
+        addRule("positive",
+                value -> value == null || value > 0);
+
         return this;
     }
 
-    public NumberSchema range(double start, double end) {
-        rangeStart = start;
-        rangeEnd = end;
+    public NumberSchema range(int min, int max) {
+        addRule("range",
+                value -> value == null || (value >= min && value <= max));
+
         return this;
-    }
-
-    @Override
-    public boolean isValid(Number value) {
-        if (!isValidRequired(value)) {
-            return false;
-        }
-
-        if (positive && (value.doubleValue() <= 0)) {
-            return false;
-        }
-
-        if (rangeStart != null && rangeEnd != null) {
-            if (value.doubleValue() < rangeStart || value.doubleValue() > rangeEnd) {
-                return false;
-            }
-        }
-
-        return true;
     }
 }

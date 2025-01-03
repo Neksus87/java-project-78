@@ -1,12 +1,21 @@
 package hexlet.code.schemas;
 
-public abstract class BaseSchema<T> {
-    protected boolean required = false;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.function.Predicate;
 
-    protected boolean isValidRequired(T value) {
-        return !required || value != null; // Вернет true, если required = false или value не null
+public abstract class BaseSchema<T> {
+
+
+    private Map<String, Predicate<T>> schemeRules = new HashMap<>();
+
+    protected final void addRule(String rule, Predicate<T> ruleLogic) {
+        schemeRules.put(rule, ruleLogic);
     }
 
-    // Добавляем абстрактный метод isValid
-    public abstract boolean isValid(T value);
+    public final boolean isValid(T testedValue) {
+        return schemeRules.values()
+                .stream()
+                .allMatch(predicate -> predicate.test(testedValue));
+    }
 }
