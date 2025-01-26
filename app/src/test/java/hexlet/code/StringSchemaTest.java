@@ -6,7 +6,6 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.NullSource;
 import org.junit.jupiter.params.provider.ValueSource;
-
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 
@@ -15,7 +14,6 @@ public final class StringSchemaTest {
     private StringSchema stringSchema;
     private final String testingString1 = "3rd project";
     private final String testingString2 = "hexlet";
-
 
     @BeforeEach
     public void beforeEach() {
@@ -78,9 +76,16 @@ public final class StringSchemaTest {
     }
 
     @Test
-    public void changeParamInOneChainTest() {
-        stringSchema.required().minLength(8).contains("hex").minLength(3);
+    public void combinedStringSchemaPassTest() {
+        stringSchema.required().minLength(4).contains("he");
 
         assertTrue(stringSchema.isValid(testingString2));
+    }
+
+    @Test
+    public void combinedStringSchemaFailTest() {
+        stringSchema.required().minLength(8).contains("hax");
+
+        assertFalse(stringSchema.isValid(testingString1)); // не подходит по обоим правилам
     }
 }

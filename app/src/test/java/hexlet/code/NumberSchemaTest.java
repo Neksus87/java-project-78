@@ -6,7 +6,6 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.NullSource;
 import org.junit.jupiter.params.provider.ValueSource;
-
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -60,7 +59,6 @@ public final class NumberSchemaTest {
         assertFalse(numberSchema.isValid(testingNegative));
     }
 
-
     @Test
     public void numberFitsInRangePassTest() {
         numberSchema.required().range(minBound, maxBound);
@@ -73,5 +71,19 @@ public final class NumberSchemaTest {
         numberSchema.required().range(minBound, maxBound);
 
         assertFalse(numberSchema.isValid(testingNegative));
+    }
+
+    @Test
+    public void combinedNumberSchemaPassTest() {
+        numberSchema.required().positive().range(0, 10);
+
+        assertTrue(numberSchema.isValid(5));
+    }
+
+    @Test
+    public void combinedNumberSchemaFailTest() {
+        numberSchema.required().positive().range(1, 3);
+
+        assertFalse(numberSchema.isValid(4)); // за пределами диапазона
     }
 }

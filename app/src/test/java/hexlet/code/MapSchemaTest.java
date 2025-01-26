@@ -7,11 +7,9 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
 import org.junit.jupiter.params.provider.NullSource;
-
 import java.util.HashMap;
 import java.util.Map;
 import java.util.stream.Stream;
-
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -73,8 +71,10 @@ public final class MapSchemaTest {
     }
 
     private Map<String, BaseSchema<String>> stringSchemasProvider() {
-        return Map.of("firstName", validator.string().required().contains("Maks"),
-                "lastName", validator.string().required().minLength(5));
+        return Map.of(
+                "firstName", validator.string().required().contains("Maks"),
+                "lastName", validator.string().required().minLength(5)
+        );
     }
 
     @Test
@@ -99,9 +99,37 @@ public final class MapSchemaTest {
         assertFalse(mapSchema.isValid(testedMap));
     }
 
+    @Test
+    public void combinedShapeTestPassed() {
+        Map<String, String> testedMap = new HashMap<>();
+        testedMap.put("firstName", "Maksim"); // корректно
+        testedMap.put("lastName", "Lukin"); // корректно
+
+        mapSchema.shape(stringSchemasProvider())
+                .required()
+                .sizeof(2);
+
+        assertTrue(mapSchema.isValid(testedMap));
+    }
+
+    @Test
+    public void combinedShapeTestFailed() {
+        Map<String, String> testedMap = new HashMap<>();
+        testedMap.put("firstName", "Maxim"); // не корректно
+        testedMap.put("lastName", "Luk"); // не корректно
+
+        mapSchema.shape(stringSchemasProvider())
+                .required()
+                .sizeof(4); // не хватает элементов
+
+        assertFalse(mapSchema.isValid(testedMap));
+    }
+
     private Map<String, BaseSchema<Integer>> numberSchemasProvider() {
-        return Map.of("age", validator.number().required().range(10, 30),
-                "year", validator.number().required().positive());
+        return Map.of(
+                "age", validator.number().required().range(10, 30),
+                "year", validator.number().required().positive()
+        );
     }
 
     @Test
@@ -119,7 +147,7 @@ public final class MapSchemaTest {
     public void shapeTestFailed2() {
         Map<String, Integer> testedMap = new HashMap<>();
         testedMap.put("age", 20);
-        testedMap.put("year", -10);
+        testedMap.put("year", -10); // не корректно
 
         mapSchema.shape(numberSchemasProvider());
 
